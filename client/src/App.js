@@ -72,6 +72,7 @@ function App() {
             messages={messages}
             selectedChat={selectedChat}
             onSendMessage={handleSendMessage}
+            onBack={() => setSelectedChat(null)}
           />
         ) : (
           <div className="no-chat-selected">Select a chat to start messaging</div>

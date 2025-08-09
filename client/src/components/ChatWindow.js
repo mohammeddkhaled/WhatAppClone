@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import moment from 'moment';
 
-const ChatWindow = ({ messages, selectedChat, onSendMessage }) => {
+const ChatWindow = ({ messages, selectedChat, onSendMessage, onBack }) => {
   const [messageText, setMessageText] = useState('');
 
   const handleSubmit = (e) => {
@@ -14,11 +14,11 @@ const ChatWindow = ({ messages, selectedChat, onSendMessage }) => {
     const statusMap = {};
     statuses.forEach(s => statusMap[s.status] = true);
     if (statusMap.read) {
-      return '✓✓'; // Read (double checkmark)
+      return '✓✓'; 
     } else if (statusMap.delivered) {
-      return '✓✓'; // Delivered (double checkmark)
+      return '✓✓'; 
     } else if (statusMap.sent) {
-      return '✓'; // Sent (single checkmark)
+      return '✓'; 
     }
     return '';
   };
@@ -26,6 +26,9 @@ const ChatWindow = ({ messages, selectedChat, onSendMessage }) => {
   return (
     <div className="chat-window-container">
       <div className="chat-window-header">
+        <button onClick={onBack} className="back-button">
+          &larr;
+        </button>
         <div className="chat-window-name">{selectedChat._id}</div>
         <div className="chat-window-number">{selectedChat._id}</div>
       </div>

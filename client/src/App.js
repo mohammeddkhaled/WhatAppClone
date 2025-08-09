@@ -62,7 +62,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className={`app ${selectedChat ? 'chat-window-active' : ''}`}>
       <div className="chat-list">
         <ChatList chats={chats} onSelectChat={setSelectedChat} selectedChat={selectedChat} />
       </div>

@@ -13,7 +13,7 @@ function App() {
     // Fetch the list of all conversations
     const fetchChats = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/chats');
+        const response = await axios.get('https://whatappclone-9hmq.onrender.com/api/chats');
         setChats(response.data);
       } catch (error) {
         console.error('Error fetching chats:', error);
@@ -27,7 +27,7 @@ function App() {
     if (selectedChat) {
       const fetchMessages = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/chats/${selectedChat._id}`);
+          const response = await axios.get(`https://whatappclone-9hmq.onrender.com/api/chats/${selectedChat._id}`);
           setMessages(response.data);
         } catch (error) {
           console.error('Error fetching messages:', error);
@@ -48,7 +48,7 @@ function App() {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/messages', newMessage);
+      await axios.post('https://whatappclone-9hmq.onrender.com/api/messages', newMessage);
       // Update the UI with the new message
       setMessages(prevMessages => [...prevMessages, {
         ...newMessage,
